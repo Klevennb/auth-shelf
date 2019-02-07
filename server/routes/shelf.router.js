@@ -60,6 +60,22 @@ router.put('/:id', (req, res) => {
  */
 router.get('/count', (req, res) => {
 
+    if (req.isAuthenticated()) {
+        console.log('req.user: ', req.user);
+        const queryText = `SELECT "username", "description"
+                           FROM "person"
+                           JOIN "item"
+                           ON "person"."id" = "item"."person_id";`;
+        pool.query(queryText)
+        .then((results) => {
+            res.send(results.rows);
+        }).catch((error) => {
+            console.log('Error in GET /count: ', error);
+            res.sendStatus(500);
+        })
+    } else {
+        res.sendStatus(403);
+    }
 });
 
 
