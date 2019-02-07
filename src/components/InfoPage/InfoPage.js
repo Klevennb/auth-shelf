@@ -2,7 +2,7 @@ import React from 'react';
 //import ViewShelf
 
 //import AddItem
-
+import AddToShelf from './AddToShelf';
 //import ByUser
 import ItemByUser from './../ItemByUser/ItemByUser.js';
 // This is one of our simplest components
@@ -14,14 +14,15 @@ const InfoPage = () => (
   <div>
     <p>
       Info Page
+    </p>
+    
+    <ItemByUser />
+    
+    <AddToShelf />
+    
 
-{/* source view shelf */}
-
-{/* source additem */}
-
-{/* source byuser */}
-      <ItemByUser />
-
+    <p>
+    Bottom of Info Page
     </p>
   </div>
 );
