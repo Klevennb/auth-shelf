@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 class ViewShelf extends Component {
     populateTable = () => {
-        return this.props.reduxStore.
+        // return this.props.reduxStore.
+        return <h1>hi</h1>
     }
 
     render() {
