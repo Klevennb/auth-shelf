@@ -1,6 +1,6 @@
 import React from 'react';
 //import ViewShelf
-
+import ViewShelf from '../ViewShelfPage/ViewShelf';
 //import AddItem
 
 //import ByUser
@@ -16,7 +16,7 @@ const InfoPage = () => (
       Info Page
 
 {/* source view shelf */}
-
+  <ViewShelf />
 {/* source additem */}
 
 {/* source byuser */}
