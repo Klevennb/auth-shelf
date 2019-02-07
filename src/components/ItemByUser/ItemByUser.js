@@ -27,7 +27,7 @@ class ItemByUser extends Component {
                 <h3>Items by User</h3>
                 <table className="item-by-user">
                     <thead>
-                        <tr><th>Item</th><th>User</th></tr>
+                        <tr><th>Number of Items</th><th>User</th></tr>
                     </thead>
                     <tbody>
                         {this.state.rows.map((person, i) => {
