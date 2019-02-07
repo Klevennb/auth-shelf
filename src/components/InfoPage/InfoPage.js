@@ -1,4 +1,9 @@
 import React from 'react';
+//import ViewShelf
+
+//import AddItem
+
+//import ByUser
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -9,6 +14,14 @@ const InfoPage = () => (
   <div>
     <p>
       Info Page
+
+{/* source view shelf */}
+
+{/* source additem */}
+
+{/* source byuser */}
+
+
     </p>
   </div>
 );
