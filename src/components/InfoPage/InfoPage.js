@@ -14,14 +14,15 @@ const InfoPage = () => (
   <div>
     <p>
       Info Page
+    </p>
+    {/* source view shelf */}
 
-{/* source view shelf */}
+    {/* source additem */}
+    <AddToShelf />
+    {/* source byuser */}
 
-{/* source additem */}
-  <AddToShelf />
-{/* source byuser */}
-
-
+    <p>
+    Bottom of Info Page
     </p>
   </div>
 );
