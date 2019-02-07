@@ -56,10 +56,10 @@ router.get('/count', (req, res) => {
 
     if (req.isAuthenticated()) {
         console.log('req.user: ', req.user);
-        const queryText = `SELECT "username", "description"
+        const queryText = `SELECT "username", COUNT("description")as "description"
                            FROM "person"
-                           JOIN "item"
-                           ON "person"."id" = "item"."person_id";`;
+                           JOIN "item" ON "person"."id" = "item"."person_id"
+                           GROUP BY "username";`;
         pool.query(queryText)
         .then((results) => {
             res.send(results.rows);
