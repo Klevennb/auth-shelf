@@ -3,13 +3,17 @@
 //                         person_id: 1}]
 
 
-const shelfReducer = (state= {}, action) => {
-    switch (action.type) {
-        case 'SET_SHELF':
-            return action.payload;
-        default:
-            return state;
+const shelfReducer = (state= [10], action) => {
+    // switch (action.type) {
+    //     case 'SET_SHELF':
+    //         return action.payload;
+    //     default:
+    //         return state;
+    // }
+    if (action.type === 'SET_SHELF') {
+        return action.payload;
     }
+    return state;
 }
 
 export default shelfReducer;

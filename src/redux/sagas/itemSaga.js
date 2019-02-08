@@ -12,17 +12,31 @@ function* addItem(action) {
 
 function* getItems(){
     try{
-        yield axios.get('/api/shelf');
-        yield put({type: "SET_SHELF"});
+        const serverResponse = yield axios.get('/api/shelf');
+        // console.log('!!!!!!', serverResponse.data);
+        
+        yield put({ type: "SET_SHELF", payload: serverResponse.data});
     }
     catch(err){
         yield console.log('error in getItems saga', err);
     }
 }
 
+function* deleteItems(action) {
+    try {
+        console.log('in deleteItems',action.payload);
+        
+        yield axios.delete(`/api/shelf/${action.payload}`);
+        yield put({ type: "GET_ITEMS"});
+    }
+    catch (err) {
+        yield console.log('error in getItems saga', err);
+    }
+}
 function* itemSaga() {
     yield takeLatest('ADD_TO_SHELF', addItem);
     yield takeLatest('GET_ITEMS', getItems);
+    yield takeLatest('DELETE_ITEM', deleteItems);
 }
 
 export default itemSaga;

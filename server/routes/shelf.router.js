@@ -42,9 +42,21 @@ router.post('/', (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
-
+    let item = req.params;
+    console.log(item);
+    sqlText = `DELETE FROM "item" WHERE "id" = '${item.id}'`;
+    pool.query(sqlText);
+    res.sendStatus;
 });
+// router.delete('/:id', (req, res) => {
+//     console.log(req.params);
+//     let animal = req.params;
+//     console.log(animal.id);
 
+//     sqlText = `DELETE FROM "species" WHERE "species_name" = '${animal.id}'`;
+//     res.sendStatus(200);
+//     pool.query(sqlText);
+// });
 
 /**
  * Update an item if it's something the logged in user added
