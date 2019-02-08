@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* addItem(action) {
@@ -27,7 +27,7 @@ function* deleteItems(action) {
         console.log('in deleteItems',action.payload);
         
         yield axios.delete(`/api/shelf/${action.payload}`);
-        yield put({ type: "GET_ITEMS"});
+        yield put({ type: 'GET_ITEMS'});
     }
     catch (err) {
         yield console.log('error in getItems saga', err);
@@ -35,7 +35,7 @@ function* deleteItems(action) {
 }
 function* itemSaga() {
     yield takeLatest('ADD_TO_SHELF', addItem);
-    yield takeLatest('GET_ITEMS', getItems);
+    yield takeEvery ('GET_ITEMS', getItems);
     yield takeLatest('DELETE_ITEM', deleteItems);
 }
 

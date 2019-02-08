@@ -46,7 +46,7 @@ router.delete('/:id', (req, res) => {
     console.log(item);
     sqlText = `DELETE FROM "item" WHERE "id" = '${item.id}'`;
     pool.query(sqlText);
-    res.sendStatus;
+    res.sendStatus(200);
 });
 // router.delete('/:id', (req, res) => {
 //     console.log(req.params);
