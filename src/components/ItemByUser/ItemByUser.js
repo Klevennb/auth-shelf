@@ -10,14 +10,21 @@ class ItemByUser extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/api/shelf/count')
-        .then((response) => {
-            this.setState({
-                rows: response.data
-            })
-        }).catch((error) => {
-            console.log('error in itembyuser get request: ', error);
+        this.props.dispatch({
+            type: 'GET_COUNT'
         })
+        
+        
+        
+        
+        // axios.get('/api/shelf/count')
+        // .then((response) => {
+        //     this.setState({
+        //         rows: response.data
+        //     })
+        // }).catch((error) => {
+        //     console.log('error in itembyuser get request: ', error);
+        // })
     }
 
     render() {
@@ -30,7 +37,7 @@ class ItemByUser extends Component {
                         <tr><th>Number of Items</th><th>User</th></tr>
                     </thead>
                     <tbody>
-                        {this.state.rows.map((person, i) => {
+                        {this.props.countReducer.map((person, i) => {
                             return <ItemByUserRow key={i} user={person.username} items={person.description}/>
                         })}
                     </tbody>
@@ -42,6 +49,7 @@ class ItemByUser extends Component {
 
 const mapStateToProps = state => ({
     errors: state.errors,
+    countReducer: state.countReducer
 });
 
 export default connect(mapStateToProps)(ItemByUser);
