@@ -6,7 +6,7 @@ class ItemByUserRow extends Component {
         return(
             <tr>
                 <td>
-                    {this.props.item}
+                    {this.props.items}
                 </td>
                 <td>
                     {this.props.user}

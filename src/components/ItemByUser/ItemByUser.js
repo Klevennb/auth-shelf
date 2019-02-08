@@ -31,7 +31,7 @@ class ItemByUser extends Component {
                     </thead>
                     <tbody>
                         {this.state.rows.map((person, i) => {
-                            return <ItemByUserRow key={i} user={person.username} item={person.description}/>
+                            return <ItemByUserRow key={i} user={person.username} items={person.description}/>
                         })}
                     </tbody>
                 </table>
